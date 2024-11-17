@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт з продуктами</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(248, 249, 250, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        header .login-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 40px; 
+        }
+
+        header .login-button:hover {
+            background-color: #218838;
+        }
+
+        .dropdown {
+            position: relative;
+            display: none; /* Сховати меню за замовчуванням */
+        }
+
+        .dropbtn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #2980b9;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-card h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .product-card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #e74c3c;
+        }
+
+        .product-card button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+            }
+
+            .dropdown {
+                display: block; /* Показати меню на маленьких екранах */
+            }
+
+            .dropdown-content {
+                display: none; /* Сховати контент меню за замовчуванням */
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block; /* Показати контент меню при наведенні */
+            }
+        }
+
+        @media (max-width: 960px) {
+            .content-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="Logo.png" alt="Логотип">
+    <nav>
+        <a href="#home">Головна</a>
+        <a href="#products">Продукти</a>
+        <a href="#contacts">Контакти</a>
+    </nav>
+    <div class="dropdown">
+        <button class="dropbtn">Меню</button>
+        <div class="dropdown-content">
+            <a href="#home">Головна</a>
+            <a href="#products">Продукти</a>
+            <a href="#contacts">Контакти</a>
+        </div>
+    </div>
+    <button class="login-button">Увійти</button> 
+</header>
+
+<main>
+    <div class="content-container">
+        <article class="product-card">
+            <img src="Rapier.png" alt="Зображення продукту">
+            <h2>Divine Rapier</h2>
+            <p>Цей продукт є найкращим у своїй категорії та пропонує високу якість та ефективність за доступною ціною.</p>
+            <div class="price">Ціна: 5600 грн</div>
+            <button>Купити зараз</button>
+        </article>
+        <article class="product-card">
+            <img src="Butterfly.png" alt="Зображення продукту">
+            <h2>Butterfly</h2>
+            <p>Збільшує вашу швидкість та силу атаки, а також використовуючи цей продукт, по вам буде складніше влучити.</p>
+            <div class="price">Ціна: 5450 грн</div>
+            <button>Купити зараз</button>
+        </article>
+        <article class="product-card">
+            <img src="Tarrasque.png" alt="Зображення продукту">
+            <h2>Heart of Tarrasque</h2>
+            <p>Надає вам міцне здоров'я та завдяки цьому продукту ви швидше відновлюєте свої сили.</p>
+            <div class="price">Ціна: 5150 грн</div>
+            <button>Купити зараз</button>
+        </article>
+        <article class="product-card">
+            <img src="Aghanim.png" alt="Зображення продукту">
+            <h2>Aghanim Scepter</h2>
+            <p>Цей продукт покращує ваші здібності та додає нові.</p>
+            <div class="price">Ціна: 4200 грн</div>
+            <button>Купити зараз</button>
+        </article>
+    </div>
+</main>
+
+</body>
+</html>
